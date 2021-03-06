@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwce.mapper.BoardMapper">
+	<insert id="create_purchase">
+	INSERT
+		INTO purchase_table
+			( title, 
+			 content,
+			 writer )
+		VALUES
+			( #{title},
+			  #{content},
+			  #{writer} )
+	
+	</insert>
+	
+	<insert id="create_sell">
+	INSERT
+		INTO sell_table
+			( title, 
+			 content,
+			 writer )
+		VALUES
+			( #{title},
+			  #{content},
+			  #{writer} )
+	
+	</insert>
+	
+	<insert id="create_after">
+	INSERT
+		INTO after_table
+			( title, 
+			 content,
+			 writer )
+		VALUES
+			( #{title},
+			  #{content},
+			  #{writer} )
+	
+	</insert>
+	
+	<insert id="create_accuse">
+	INSERT
+		INTO accuse_table
+			( title, 
+			 content,
+			 writer )
+		VALUES
+			( #{title},
+			  #{content},
+			  #{writer} )
+	
+	</insert>
+	
+	<insert id="create_freetalk">
+	INSERT
+		INTO freetalk_table
+			( title, 
+			 content,
+			 writer )
+		VALUES
+			( #{title},
+			  #{content},
+			  #{writer} )
+	
+	</insert>
+
+	<select id="read_purchase" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM purchase_table
+	WHERE bno = #{bno}
+
+	
+	</select>
+	
+	<select id="read_sell" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM sell_table
+	WHERE bno = #{bno}
+
+	
+	</select>
+	
+	
+	<select id="read_after" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM after_table
+	WHERE bno = #{bno}
+
+	
+	</select>
+	
+	
+	<select id="read_accuse" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM accuse_table
+	WHERE bno = #{bno}
+
+	
+	</select>
+	
+	
+	<select id="read_freetalk" resultType="com.kwce.domain.BoardVO">
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM freetalk_table
+	WHERE bno = #{bno}
+
+	
+	</select>
+	
+
+	<update id="update_purchase">
+	UPDATE purchase_table
+		SET title =#{title},
+			content =#{content}
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="update_sell">
+	UPDATE sell_table
+		SET title =#{title},
+			content =#{content}
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="update_after">
+	UPDATE after_table
+		SET title =#{title},
+			content =#{content}
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="update_accuse">
+	UPDATE accuse_table
+		SET title =#{title},
+			content =#{content}
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="update_freetalk">
+	UPDATE freetalk_table
+		SET title =#{title},
+			content =#{content}
+	WHERE bno = #{bno}
+	</update>
+	
+	
+	<delete id="delete_purchase">
+	DELETE 
+		FROM purchase_table
+	WHERE bno = #{bno}
+	</delete>
+	
+	<delete id="delete_sell">
+	DELETE 
+		FROM sell_table
+	WHERE bno = #{bno}
+	</delete>
+	
+	<delete id="delete_after">
+	DELETE 
+		FROM after_table
+	WHERE bno = #{bno}
+	</delete>
+	
+	<delete id="delete_accuse">
+	DELETE 
+		FROM accuse_table
+	WHERE bno = #{bno}
+	</delete>
+	
+	<delete id="delete_freetalk">
+	DELETE 
+		FROM freetalk_table
+	WHERE bno = #{bno}
+	</delete>
+	
+	
+	
+	<update id="updateViewCnt_purchase">
+		UPDATE purchase_table
+		SET viewcnt = viewcnt +1
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="updateViewCnt_sell">
+		UPDATE sell_table
+		SET viewcnt = viewcnt +1
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="updateViewCnt_after">
+		UPDATE after_table
+		SET viewcnt = viewcnt +1
+	WHERE bno = #{bno}
+	</update>
+	
+	<update id="updateViewCnt_accuse">
+		UPDATE accuse_table
+		SET viewcnt = viewcnt +1
+	WHERE bno = #{bno}
+	</update>
+	
+	
+	<update id="updateViewCnt_freetalk">
+		UPDATE freetalk_table
+		SET viewcnt = viewcnt +1
+	WHERE bno = #{bno}
+	</update>
+	
+	
+		
+	<select id="listAll" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM purchase_table
+	WHERE bno > 0
+	ORDER BY bno DESC,
+			regdate DESC
+	]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	<select id="paging" resultType="com.kwce.domain.BoardVO">
+	<![CDATA[
+	SELECT
+		bno,
+		title,
+		content,
+		writer,
+		regdate,
+		viewcnt
+	FROM purchase_table
+	WHERE bno > 0
+	LIMIT 0,25
+	
+	]]>
+	
+	</select>
+	
+	<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+	
+	<select id="purchase" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+	 SELECT
+
+	   bno, title, content, writer, regdate, viewcnt 
+
+	 FROM purchase_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+
+	 LIMIT #{page}, 10
+
+ 	]]>  
+
+ </select>
+
+
+
+  <select id="purchaseCriteria" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  bno, title, content, writer, regdate, viewcnt 
+
+	 FROM purchase_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+	
+ 	LIMIT #{pageStart}, #{perPageNum}
+
+	 ]]>  
+
+ </select>
+
+ 
+
+ <select id="purchasePaging" resultType="int">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  count(bno) 
+
+	 FROM purchase_table 
+
+	 WHERE 	bno > 0 
+	
+ 	]]>
+	
+	</select>
+	
+	
+	
+	<select id="sell" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+	 SELECT
+
+	   bno, title, content, writer, regdate, viewcnt 
+
+	 FROM sell_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+
+	 LIMIT #{page}, 10
+
+ 	]]>  
+
+ </select>
+
+
+
+  <select id="sellCriteria" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  bno, title, content, writer, regdate, viewcnt 
+
+	 FROM sell_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+	
+ 	LIMIT #{pageStart}, #{perPageNum}
+
+	 ]]>  
+
+ </select>
+
+ 
+
+ <select id="sellPaging" resultType="int">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  count(bno) 
+
+	 FROM sell_table 
+
+	 WHERE 	bno > 0 
+	
+ 	]]>
+	
+	</select>
+	
+	
+	<select id="after" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+	 SELECT
+
+	   bno, title, content, writer, regdate, viewcnt 
+
+	 FROM after_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+
+	 LIMIT #{page}, 10
+
+ 	]]>  
+
+ </select>
+
+
+
+  <select id="afterCriteria" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  bno, title, content, writer, regdate, viewcnt 
+
+	 FROM after_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+	
+ 	LIMIT #{pageStart}, #{perPageNum}
+
+	 ]]>  
+
+ </select>
+
+ 
+
+ <select id="afterPaging" resultType="int">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  count(bno) 
+
+	 FROM after_table 
+
+	 WHERE 	bno > 0 
+	
+ 	]]>
+	
+	</select>
+	
+	
+	
+	
+	<select id="accuse" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+	 SELECT
+
+	   bno, title, content, writer, regdate, viewcnt 
+
+	 FROM accuse_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+
+	 LIMIT #{page}, 10
+
+ 	]]>  
+
+ </select>
+
+
+
+  <select id="accuseCriteria" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  bno, title, content, writer, regdate, viewcnt 
+
+	 FROM accuse_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+	
+ 	LIMIT #{pageStart}, #{perPageNum}
+
+	 ]]>  
+
+ </select>
+
+ 
+
+ <select id="accusePaging" resultType="int">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  count(bno) 
+
+	 FROM accuse_table 
+
+	 WHERE 	bno > 0 
+	
+ 	]]>
+	
+	</select>
+	
+	
+	
+	
+	<select id="freetalk" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+	 SELECT
+
+	   bno, title, content, writer, regdate, viewcnt 
+
+	 FROM freetalk_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+
+	 LIMIT #{page}, 10
+
+ 	]]>  
+
+ </select>
+
+
+
+  <select id="freetalkCriteria" resultType="com.kwce.domain.BoardVO">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  bno, title, content, writer, regdate, viewcnt 
+
+	 FROM freetalk_table 
+
+	 WHERE bno > 0 
+
+ 	ORDER BY bno DESC, regdate DESC
+	
+ 	LIMIT #{pageStart}, #{perPageNum}
+
+	 ]]>  
+
+ </select>
+
+ 
+
+ <select id="freetalkPaging" resultType="int">
+
+ 	<![CDATA[
+
+ 	SELECT 
+
+ 	  count(bno) 
+
+	 FROM freetalk_table 
+
+	 WHERE 	bno > 0 
+	
+ 	]]>
+	
+	</select>
+	
+	
+		
+</mapper>
+
+
+
+

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/david/WorkingDir/Spring/SP3_restore/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2982093535.index
+409841775.index
+4225654763.index
+2807159932.index
+1774430353.index
+29546277.index
