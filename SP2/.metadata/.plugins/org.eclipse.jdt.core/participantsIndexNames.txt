@@ -1,0 +1,11 @@
+INDEX VERSION 1.131
+/home/david/WorkingDir/Spring/testing/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3701518509.index
+/WebTutorial/src/main/java
+/home/david/WorkingDir/Spring/testing/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2784040303.index
+/WebTutorial/src/main/java
+/home/david/WorkingDir/Spring/testing/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3210861839.index
+/tester/src/main/java
+/home/david/WorkingDir/Spring/testing/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3968934445.index
+/WebTutorial/src/main/java
+/home/david/WorkingDir/Spring/testing/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1170294029.index
+/test/src/main/java
